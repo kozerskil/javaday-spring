@@ -14,6 +14,7 @@ public class PrimeController {
     @RequestMapping("/prime")
     public PrimeRepresentation prime(@RequestParam("number") int number) {
         boolean prime = service.isPrime(number);
+        System.out.printf("isPrime(%d)==%b%n", number, prime);
         return new PrimeRepresentation(number, prime);
     }
 }

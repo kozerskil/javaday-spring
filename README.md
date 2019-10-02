@@ -16,9 +16,12 @@ http localhost:8081/hello -v
 ps_mem
 ```
 ```
+docker network create javaday-net
+```
+```
 mvn clean
 mvn package
 docker build -t javaday-spring .
-docker run --rm -d -p 8081:8081 --name spring javaday-spring
+docker run --rm -d -p 8081:8081 -m 256m --network javaday-net --name spring javaday-spring
 docker stop spring
 ```
